@@ -30,6 +30,14 @@ Smarter roll up keys will be added eventually, e.g. `country`, `state`, etc.
 
 ![example](https://raw.githubusercontent.com/dbankier/s3a/master/img/example.png)
 
+## Future
+
+Currently it only produces simple rollups. I eventually would like these too:
+ - [] charts, graphs, etc
+ - [] smarter keys for rollups, e.g. country, state, etc
+ - [] smarter filters - currently it basically greps the results, but we need to remove webcrawler, etc.
+ - [] add options to filter unique requests, by ip
+
 
 ## Licence
 
