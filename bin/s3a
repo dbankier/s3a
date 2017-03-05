@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+const prog = require('caporal')
+const path = require('path');
+const parser = require('../lib/parser');
+const analyser = require('../lib/analyser');
+
+prog.version('1.0.0')
+  .argument('<path>', 'Path to rcloned s3 logs')
+  .argument('<property>', 'Property to rollup', /userId|bucket|time|remoteIP|requester|requesterID|operation|key|requestURI|status|errorCode|bytesSent|objectSize|totalTime|turnAroundTime|referer|userAgent|versionID/, 'key')
+  .option('--filter <filter>', 'Filter the results by regular expression')
+  .option('--top <top>', 'Only show the <top> results')
+  .option('--start <start>', 'start date: DD/MM/YYYY')
+  .option('--end <end>', 'end date: DD/MM/YYYY')
+  .option('--colors', 'output with colors')
+  .action(function(args, options, logger) {
+    const target = path.resolve(args.path);
+    logger.debug("Parsing...")
+    parser(target)
+      .then(content => {
+        logger.debug("Analysing...")
+        return analyser.analyse({
+          content,
+          filter: options.filter,
+          start: options.start,
+          end: options.end,
+          property: args.property
+        })
+      })
+      .then(data => console.log(analyser.format({
+        data,
+        top: options.top ,
+        colors: options.colors
+      })))
+      .catch(err => console.err(err))
+  });
+
+prog.parse(process.argv)
+

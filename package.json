@@ -1,0 +1,15 @@
+{
+  "name": "s3a",
+  "version": "1.0.0",
+  "description": "S3 Logs Analyser",
+  "author": "David Bankier",
+  "license": "MIT",
+  "bin": {
+    "s3a": "./bin/s3a"
+  },
+  "dependencies": {
+    "caporal": "^0.3.0",
+    "chalk": "^1.1.3",
+    "moment": "^2.17.1"
+  }
+}
