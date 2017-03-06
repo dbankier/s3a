@@ -7,7 +7,8 @@ const analyser = require('../lib/analyser');
 prog.version('1.0.0')
   .argument('<path>', 'Path to rcloned s3 logs')
   .argument('<property>', 'Property to rollup', /userId|bucket|time|remoteIP|requester|requesterID|operation|key|requestURI|status|errorCode|bytesSent|objectSize|totalTime|turnAroundTime|referer|userAgent|versionID|country|region|city/, 'key')
-  .option('--keyFilter <filter>', 'Filter the key/file results by regular expression')
+  .option('--keyFilter <filter>', 'Filter by the key/file results by regular expression')
+  .option('--operationFilter <filter>', 'Filter by the operation, e.g. WEBSITE.GET.OBJECT, by regular expression')
   .option('--top <top>', 'Only show the <top> results')
   .option('--start <start>', 'start date: DD/MM/YYYY')
   .option('--end <end>', 'end date: DD/MM/YYYY')
@@ -22,6 +23,7 @@ prog.version('1.0.0')
         return analyser.analyse({
           content,
           keyFilter: options.keyFilter,
+          operationFilter: options.operationFilter,
           start: options.start,
           end: options.end,
           property: args.property,
