@@ -31,10 +31,8 @@ Possible rollup keys include, `country`, `city`, `region`, `userId`, `bucket`, `
 ## Future
 
 Currently it only produces simple rollups. I eventually would like these too:
- - [] charts, graphs, etc
- - [] smarter keys for rollups, e.g. country, state, etc
- - [] smarter filters - currently it basically greps the results, but we need to remove webcrawler, etc.
- - [] add options to filter unique requests, by ip
+ -[] charts, graphs, etc
+ -[] smarter filters - currently it basically greps the results, but we need to remove webcrawler, etc.
 
 
 ## Licence
