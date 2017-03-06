@@ -11,6 +11,7 @@ prog.version('1.0.0')
   .option('--top <top>', 'Only show the <top> results')
   .option('--start <start>', 'start date: DD/MM/YYYY')
   .option('--end <end>', 'end date: DD/MM/YYYY')
+  .option('--unique', 'only count one request per unique remoteIP - for counting unique users')
   .option('--colors', 'output with colors')
   .action(function(args, options, logger) {
     const target = path.resolve(args.path);
@@ -23,7 +24,8 @@ prog.version('1.0.0')
           filter: options.filter,
           start: options.start,
           end: options.end,
-          property: args.property
+          property: args.property,
+          unique: options.unique
         })
       })
       .then(data => console.log(analyser.format({
