@@ -1,8 +1,12 @@
 {
   "name": "s3a",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "S3 Logs Analyser",
-  "author": "David Bankier",
+  "author": "David Bankier <david@yydigital.com> (http://www.yydigital.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dbankier/s3a.git"
+  },
   "license": "MIT",
   "bin": {
     "s3a": "./bin/s3a"
