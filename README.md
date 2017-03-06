@@ -1,4 +1,4 @@
-# S3A
+# s3a
 
 A (currently) simple S3 Log Analyser.
 
@@ -22,9 +22,7 @@ $ s3a --help
 
 ![help](https://raw.githubusercontent.com/dbankier/s3a/master/img/help.png)
 
-Possible rollup keys include, `userId`, `bucket`, `time`, `remoteIP`, `requester`, `requesterID`, `operation`, `key`, `requestURI`, `status`, `errorCode`, `bytesSent`, `objectSize`, `totalTime`, `turnAroundTime`, `referer`, `userAgent`, `versionID`
-
-Smarter roll up keys will be added eventually, e.g. `country`, `state`, etc.
+Possible rollup keys include, `country`, `city`, `region`, `userId`, `bucket`, `time`, `remoteIP`, `requester`, `requesterID`, `operation`, `key`, `requestURI`, `status`, `errorCode`, `bytesSent`, `objectSize`, `totalTime`, `turnAroundTime`, `referer`, `userAgent`, `versionID`
 
 ## Example
 
